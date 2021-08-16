@@ -1,7 +1,7 @@
 export class SataModel {
   message!: string;
   timestamp!: number;
-  position!: IssPositionModel;
+  iss_position!: IssPositionModel;
 }
 
 export class IssPositionModel {

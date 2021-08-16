@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { SataService } from '@services/sata.service';
+import { fromEvent, Observable, of, Subscription } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main-page',
@@ -6,11 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.scss'],
 })
 export class MainPageComponent implements OnInit {
-  constructor() {}
+  @Output() searchKeyUp = new EventEmitter<string>();
+  @ViewChild('inputSearch') inputSearch!: ElementRef;
+  inputSearch$!: Observable<string>;
+  inputSubscription!: Subscription;
 
-  ngOnInit(): void {}
+  constructor(public sataService: SataService) { }
 
-  ngAfterViewInit() {}
-
-  ngOnDestroy(): void {}
+  ngOnInit(): void {
+    this.sataService.startSataListener();
+  }
+  ngOnDestroy(): void { }
 }
