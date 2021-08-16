@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+
+@use '~@angular/material' as mat;
+@include mat.core();
+@import 'app/style/base/mat-theme.scss';
+$AdiBB-driivz-theme: mat.define-light-theme((
+  color: (
+    primary: $mat-custom-primary,
+    accent: $mat-custom-secondary,
+    warn: $mat-custom-warn,
+  )
+));
+
+@include mat.all-component-themes($AdiBB-driivz-theme);
+@import '../src/app/style/main.scss';

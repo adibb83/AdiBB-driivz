@@ -4,6 +4,13 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "paths": {
+      "@services/*": ["src/app/services/*"],
+      "@components/*":["src/app/components/*"],
+      "@pages/*":["src/app/pages/*"],
+      "@models/*":["src/app/models/*"],
+      "@style/*":["src/app/style/*"]
+    },
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,

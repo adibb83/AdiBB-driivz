@@ -1,0 +1,91 @@
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas:
+  "sidebar main";
+    height: 100vh;
+    width: 100vw;
+
+  .left-side-bar{
+    grid-area: sidebar;
+    display: grid;
+    grid-template-rows: 30px 180px 25px 1fr;
+    grid-template-areas:"title" "filter" "button" "log";
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+
+  .title{
+    grid-area: title;
+    padding: 10px;
+  }
+
+  .list-filters{
+    grid-area: filter;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 10px;
+  }
+
+  .filter-button{
+    grid-area: button;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .log-list{
+    grid-area: log;
+    overflow-y: auto ;
+
+    .list-info{
+      display:flex;
+      align-items: center;
+      justify-content: left;
+      flex-direction: column;
+      span{
+        margin: auto 10px;
+      }
+    .url-title{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  }
+}
+
+  .main{
+    position: relative;
+    grid-area: main;
+    height:1887px;
+    width: 100%;
+
+    .map-container{
+    position: relative;
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+    .list-container{
+      position: relative;
+      height: 100%;
+    width: 100%;
+    .list-item{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    }
+    }
+  }
+}
+
+

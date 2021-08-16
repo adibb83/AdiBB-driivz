@@ -1,0 +1,22 @@
+@mixin flex-column($justify-content: flex-start, $align-items: flex-start) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin flex-row($justify-content: flex-start, $align-items: flex-start) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin const-height-basis($basis) {
+  height: 100%;
+  flex: 1 0 $basis;
+}
+
+@mixin size($width, $height) {
+  height: $height;
+  width: $width;
+}

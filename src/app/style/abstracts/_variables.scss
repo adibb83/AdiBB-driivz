@@ -1,0 +1,68 @@
+:root {
+  // COLORS
+  --color-white: #ffffff; // plain white
+  --color-black: #000000; // plain black for google maps overlay background
+
+  --color-grey-dark-1: #29333f; // main font color (also wizard containers)
+  --color-grey-dark-2: #4c5e75; // sidebar background
+  --color-grey-dark-3: #3f4e60; // progress bars background (also wizard tab background)
+  --color-grey-dark-4: #171C23; // wizard tabs header + forms
+
+
+  --color-grey-light-1: #e0e1e3; // layout background color
+  --color-grey-light-1-rgba: 224, 225, 227;
+
+  --color-grey-light-2: #92a2b1; // main grey + wizard placeholder texts
+  --color-grey-light-2-rgba: 146, 162, 177;
+
+  --color-grey-light-3: #D8E7F6;
+  --color-grey-light-4: #F3F3F3;
+
+
+  --color-red-1: #d80b15; // primary red (+wizard btn)
+  --color-red-2: #ef1616; // red for maps pins and map background layout
+  --color-red-3: #75171C; // (+wizard darker btn)
+
+  --color-green-dark-1: #59a70b; // Add project state
+  --color-green-dark-2: #0eba0d; // google map pins
+
+  --color-green-light-1: #16d723; // progress bar
+  --color-green-light-2: #72d80b; // progress bar hover
+  --color-green-light-3: #59a70b; //
+
+  --color-yellow-dark-1: #d8c40b; // progress bar hover
+  --color-yellow-light-1: #d8d80b; // progress bar
+
+  --color-blue-light-1: #1675ef; // blue for maps pins and map background layout
+
+  --oolor-disabled: rgba(0, 0, 0, 0.26);
+
+  --color-slider: #ff4081;
+
+  --color-orange-1: #E2251D;
+
+  // SHADOWS
+  --shadow-box-1: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+
+  // FONT SIZE
+  --font-size-xxs: 1rem;
+  --font-size-xs: 1.2rem;
+  --font-size-s: 1.4rem;
+  --font-size-default: 1.6rem;
+  --font-size-md: 1.8rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 2.5rem;
+  --font-size-xxl: 3rem;
+
+  // FONT WEIGHT
+  --font-weight-regular: normal;
+  --font-weight-bold: bold;
+
+  // CONSTS
+  --sidebar-width: 10.369rem;
+  --container-gutter: 1rem;
+  --border-radius: 5px;
+
+}
