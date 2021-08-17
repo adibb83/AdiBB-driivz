@@ -9,6 +9,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const MATERIAL_IMPORTS = [
   CommonModule,
@@ -21,6 +22,7 @@ const MATERIAL_IMPORTS = [
   MatSnackBarModule,
   MatAutocompleteModule,
   MatTooltipModule,
+  MatDialogModule,
 ];
 
 @NgModule({

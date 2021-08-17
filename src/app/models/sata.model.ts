@@ -1,10 +1,12 @@
-export class SataModel {
-  message!: string;
-  timestamp!: number;
-  iss_position!: IssPositionModel;
+export interface ISata {
+  id?: number;
+  name?: string;
+  message: string;
+  timestamp: number;
+  iss_position: IIssPosition;
 }
 
-export class IssPositionModel {
-  latitude!: number;
-  longitude!: number;
+export class IIssPosition {
+  latitude!: string;
+  longitude!: string;
 }

@@ -4,6 +4,7 @@
 }
 
 .container{
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-areas:
@@ -66,14 +67,10 @@
   .main{
     position: relative;
     grid-area: main;
-    height:1887px;
-    width: 100%;
 
     .map-container{
     position: relative;
-    background-size: 100% 100%;
-    height: 100%;
-    width: 100%;
+
     .list-container{
       position: relative;
       height: 100%;

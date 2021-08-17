@@ -1,0 +1,9 @@
+<div class="map-container">
+  <google-map height="100vh" width="100%" [zoom]="zoom" [center]="center" [options]="options">
+    <map-marker [position]="center" [icon]="'assets/images/setallite.png'"></map-marker>
+  </google-map>
+  <button mat-mini-fab class="add-icon" [matTooltip]="'add position'" (click)="addPositionToLog()"  color="primary" aria-label="add icon">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
