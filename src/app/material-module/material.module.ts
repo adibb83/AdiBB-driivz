@@ -10,6 +10,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 const MATERIAL_IMPORTS = [
   CommonModule,
@@ -23,6 +26,9 @@ const MATERIAL_IMPORTS = [
   MatAutocompleteModule,
   MatTooltipModule,
   MatDialogModule,
+  MatTabsModule,
+  MatTableModule,
+  MatPaginatorModule,
 ];
 
 @NgModule({

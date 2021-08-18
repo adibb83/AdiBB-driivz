@@ -12,6 +12,8 @@ import { MapComponent } from './components/map/map.component';
 import { ReportTableComponent } from './components/report-table/report-table.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { AddLocationDialogComponent } from './components/add-location-dialog/add-location-dialog.component';
+import { SataService } from '@services/sata.service';
+import { StateManagerService } from '@services/state-manager.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { AddLocationDialogComponent } from './components/add-location-dialog/add
     HttpClientModule,
     GoogleMapsModule,
   ],
-  providers: [],
+  providers: [SataService, StateManagerService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -57,7 +57,7 @@ export class MainPageComponent implements OnInit {
     } else {
       console.log('UNselectd');
       this.selectedID = -1;
-      this.sataService.zoom = 2;
+      this.sataService.zoom = 3;
       this.sataService.startSataListener();
     }
   }

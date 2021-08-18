@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { ISata } from '@models/sata.model';
 import { SnackbarService } from './snack-bar.service';
@@ -23,11 +23,12 @@ import {
   throwError,
   timer,
 } from 'rxjs';
+import { StateManagerService } from './state-manager.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SataService {
+export class SataService implements OnDestroy {
   sub!: Subscription;
   public sataPositionListener$: Observable<ISata>;
   public sataLocationLog: ISata[] = [];
@@ -39,7 +40,8 @@ export class SataService {
 
   constructor(
     private httpClient: HttpClient,
-    private snackbarService: SnackbarService
+    private snackbarService: SnackbarService,
+    private stateManagerService: StateManagerService
   ) {
     this.sataPositionListener$ = timer(1, 3000).pipe(
       switchMap(() => this.httpClient.get<ISata>(environment.remoteServer)),
@@ -102,5 +104,10 @@ export class SataService {
   private handleError<T>(e: Error) {
     console.error(e);
     return throwError(e);
+  }
+
+  ngOnDestroy() {
+    this.stopPolling.next();
+    this.stopSataListener();
   }
 }

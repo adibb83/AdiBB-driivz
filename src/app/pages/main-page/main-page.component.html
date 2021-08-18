@@ -18,8 +18,28 @@
   </div>
   </div>
   <div #main class="main">
-    <div class="map-container">
-      <app-map></app-map>
-    </div>
+    <mat-tab-group dynamicHeight>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>public</mat-icon>
+          Map
+        </ng-template>
+        <div class="map-container">
+          <app-map></app-map>
+        </div>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>table_chart</mat-icon>
+          Saved Logs
+        </ng-template>
+        <ng-template matTabContent>
+          <app-report-table></app-report-table>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+
+
   </div>
 </div>

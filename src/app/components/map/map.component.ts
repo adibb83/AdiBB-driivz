@@ -11,7 +11,7 @@ import { AddLocationDialogComponent } from '@components/add-location-dialog/add-
 })
 export class MapComponent implements OnInit, OnDestroy {
   sub!: Subscription;
-  zoom = 2;
+  zoom = 3;
   center!: google.maps.LatLngLiteral;
   options: google.maps.MapOptions = {
     mapTypeId: 'satellite',
@@ -19,7 +19,7 @@ export class MapComponent implements OnInit, OnDestroy {
     scrollwheel: false,
     disableDoubleClickZoom: true,
     maxZoom: 10,
-    minZoom: 2,
+    minZoom: 3,
   };
 
   constructor(public sataService: SataService, private dialog: MatDialog) {}
