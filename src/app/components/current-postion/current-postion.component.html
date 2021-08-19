@@ -1,0 +1,9 @@
+<div class="current-postion" *ngIf="logItem">
+<h2>Current Location</h2>
+<div>
+<span><b>Lat:</b> {{logItem.iss_position.latitude}}</span>&nbsp;
+<span><b>Lon:</b> {{logItem.iss_position.longitude}}</span>
+</div>
+<div><span> <b>Time:</b> {{(logItem.timestamp)|date:'dd/MM/yy, HH:mm:ss'}}</span></div>
+</div>
+

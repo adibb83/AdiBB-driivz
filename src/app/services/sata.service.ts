@@ -54,6 +54,7 @@ export class SataService implements OnDestroy {
 
   startSataListener() {
     this.sub = this.sataPositionListener$.subscribe((res) => {
+      res.timestamp = res.timestamp * 1000;
       this.mapLocation$.next(res);
       this.lastPosition = res;
     });

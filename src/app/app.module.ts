@@ -14,6 +14,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { AddLocationDialogComponent } from './components/add-location-dialog/add-location-dialog.component';
 import { SataService } from '@services/sata.service';
 import { StateManagerService } from '@services/state-manager.service';
+import { ClockComponent } from './components/clock/clock.component';
+import { CurrentPostionComponent } from './components/current-postion/current-postion.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { StateManagerService } from '@services/state-manager.service';
     MapComponent,
     ReportTableComponent,
     AddLocationDialogComponent,
+    ClockComponent,
+    CurrentPostionComponent,
   ],
   imports: [
     BrowserModule,
