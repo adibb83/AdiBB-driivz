@@ -5,19 +5,17 @@
   margin: 5px;
   padding: 5px;
   border-radius: 8px;
-  max-height: 200px;
-  max-width: 200px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  .close-button{
+  background-color: #fff;
+  color: #000;
+  .close-button {
     position: absolute;
-    top:2px;
+    top: 2px;
     right: 2px;
-    color:var(--color-red-1);
+    color: var(--color-red-1);
     cursor: pointer;
   }
 }
 
-.selected-Log{
+.selected-Log {
   background-color: cadetblue;
 }
-

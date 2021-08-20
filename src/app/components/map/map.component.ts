@@ -20,6 +20,7 @@ export class MapComponent implements OnInit, OnDestroy {
     disableDoubleClickZoom: true,
     maxZoom: 10,
     minZoom: 3,
+    fullscreenControl: false,
   };
 
   constructor(public sataService: SataService, private dialog: MatDialog) {}

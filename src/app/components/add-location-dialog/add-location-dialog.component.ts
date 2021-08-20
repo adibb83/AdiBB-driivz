@@ -12,7 +12,10 @@ import { SnackbarService } from '@services/snack-bar.service';
 })
 export class AddLocationDialogComponent implements OnInit {
   locationForm = new FormGroup({
-    location_name: new FormControl(null, [Validators.required]),
+    location_name: new FormControl(null, [
+      Validators.required,
+      Validators.minLength(2),
+    ]),
   });
 
   constructor(

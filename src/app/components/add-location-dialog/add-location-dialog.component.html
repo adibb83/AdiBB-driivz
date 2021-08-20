@@ -1,16 +1,19 @@
 <div class="create-order-popup">
   <h1>Add Log Name</h1>
   <div class="upload-files-section">
-    <form [formGroup]="locationForm" novalidate (submit)="onSubmit()" #orderFormElement class="order-form">
+    <form [formGroup]="locationForm" novalidate  #orderFormElement class="order-form">
       <mat-form-field appearance="fill">
         <mat-label>log name</mat-label>
         <input matInput formControlName="location_name">
       </mat-form-field>
       <div class="button-action" >
-        <button mat-raised-button color="primary" [disabled]="locationForm.invalid" type="submit">
+        <button mat-raised-button color="primary" [disabled]="locationForm.invalid" (click)="onSubmit()">
          Save
         </button>
-        <a mat-button color="primary" (click)="onCancel()">Cancel</a>
+
+        <button mat-raised-button color="Warn"  (click)="onCancel()">
+         Cancel
+         </button>
       </div>
     </form>
   </div>

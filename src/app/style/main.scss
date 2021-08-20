@@ -1,16 +1,19 @@
-@import 'base/mat-theme.scss';
-@import 'abstracts/mixins';
-@import 'abstracts/variables';
+@import "base/mat-theme";
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
-@import 'base/base';
-@import 'base/typography';
-@import 'base/utilities';
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
 
-@import 'layout/grid';
-@import 'layout/breakpoints';
+@import "layout/grid";
+@import "layout/breakpoints";
 
-@import 'components/map';
-@import 'components/location-ref';
-@import 'components/clock.scss';
+@import "components/map";
+@import "components/location-ref";
+@import "components/clock";
 
-@import 'mat-override/table.scss';
+@import "mat-override/globale";
+@import "mat-override/forms";
+@import "mat-override/table";
+@import "mat-override/tabs";

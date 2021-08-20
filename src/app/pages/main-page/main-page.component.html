@@ -1,20 +1,21 @@
 <div class="container">
 <div class="status-bar">
 <div class="logo">
-<img src="https://logomakr.com/media/ux/logomaker.png" alt="">
-</div>
-<div class="clock-container">
-<app-clock></app-clock>
+ <img [src]="'assets/images/LogoMakr-Iss.png'" alt="">
 </div>
 <div class="status">
 <app-current-postion></app-current-postion>
 </div>
+<div class="clock-container">
+  <app-clock></app-clock>
+  </div>
 </div>
   <div class="left-side-bar">
     <div class="list-filters">
       <mat-form-field appearance="fill">
         <mat-label>Search</mat-label>
         <input matInput type="text" [formControl]="search">
+        <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
     </div>
     <div class="log-list">
@@ -34,7 +35,7 @@
           <mat-icon color="accent">public</mat-icon>
           Map
         </ng-template>
-        <div class="map-container">
+        <div class="main-map-container">
           <app-map></app-map>
         </div>
       </mat-tab>
