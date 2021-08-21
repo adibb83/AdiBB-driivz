@@ -5,29 +5,35 @@
 
 // Small devices (large handsets, tablets)
 @mixin bp-small {
-    @media (min-width: 600px) {
-      @content;
-    }
+  @media (max-width: 600px) {
+    @content;
   }
-  
-  // Medium devices (large tablets)
-  @mixin bp-medium {
-    @media (min-width: 1023px) {
-      @content;
-    }
+}
+
+// Medium small devices (small tablets)
+@mixin bp-medium-small {
+  @media (max-width: 900px) {
+    @content;
   }
-  
-  // Large devices (desktops < 1080p)
-  @mixin bp-large {
-    @media (min-width: 1439px) {
-      @content;
-    }
+}
+
+// Medium devices (large tablets)
+@mixin bp-medium {
+  @media (max-width: 1023px) {
+    @content;
   }
-  
-  // Extra Large devices (desktops >= 1080p)
-  @mixin bp-xlarge {
-    @media (min-width: 1919px) {
-      @content;
-    }
+}
+
+// Large devices (desktops < 1080p)
+@mixin bp-large {
+  @media (max-width: 1439px) {
+    @content;
   }
-  
+}
+
+// Extra Large devices (desktops >= 1080p)
+@mixin bp-xlarge {
+  @media (max-width: 1919px) {
+    @content;
+  }
+}

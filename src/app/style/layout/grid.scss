@@ -1,4 +1,5 @@
 @import "../abstracts/mixins";
+@import "breakpoints";
 
 .cursor-pointer {
   cursor: pointer;
@@ -11,12 +12,13 @@ main {
 .container {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 6fr;
+  grid-template-columns: 300px 1fr;
   grid-template-rows: 1fr 9fr;
   grid-template-areas:
     "status status"
     "sidebar mapContainer";
   height: 100%;
+
   .status-bar {
     grid-area: status;
     @include flex-row(space-between, center);
@@ -25,7 +27,8 @@ main {
     .logo {
       img {
         width: 100%;
-        height: 100;
+        height: 100%;
+        min-width: 120px;
         max-height: 75px;
         align-self: center;
         padding: 10px;
@@ -59,6 +62,9 @@ main {
     .list-filters {
       grid-area: filter;
       @include flex-column(center, flex-start);
+      form {
+        width: 100%;
+      }
     }
 
     .log-list {
@@ -67,14 +73,6 @@ main {
 
       .list-info {
         @include flex-column(left, center);
-        span {
-          margin: auto 10px;
-        }
-        .url-title {
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
       }
     }
   }
@@ -99,5 +97,37 @@ main {
         }
       }
     }
+  }
+}
+
+@include bp-medium-small {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 9fr;
+    grid-template-areas:
+      "status"
+      "sidebar"
+      "mapContainer";
+
+    .left-side-bar {
+      grid-template-rows: 1fr;
+      grid-template-columns: 150px 1fr;
+      grid-template-areas: "filter log";
+      overflow: unset;
+      padding: 0px 10px;
+      .log-list {
+        @include flex-row(space-between, center);
+        overflow-x: auto;
+        .location-ref {
+          min-width: 150px;
+        }
+      }
+    }
+  }
+}
+
+@include bp-small {
+  .clock-container {
+    display: none !important;
   }
 }

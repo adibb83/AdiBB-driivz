@@ -1,3 +1,5 @@
+@import "../abstracts/variables";
+
 .location-ref {
   position: relative;
   display: flex;
@@ -5,8 +7,12 @@
   margin: 5px;
   padding: 5px;
   border-radius: 8px;
-  background-color: #fff;
-  color: #000;
+  background-color: var(--color-white);
+  color: var(--color-grey-dark-1);
+
+  h3 {
+    color: var(--color-blue-light-1);
+  }
   .close-button {
     position: absolute;
     top: 2px;
