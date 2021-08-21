@@ -1,8 +1,10 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ISata } from '@models/sata.model';
 
 import { SataService } from '@services/sata.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-report-table',
@@ -11,6 +13,7 @@ import { SataService } from '@services/sata.service';
 })
 export class ReportTableComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource();
+  dataSource$!: Observable<ISata[]>;
   @ViewChild(MatSort) sort!: MatSort;
   displayedColumns: string[] = [
     'id',
@@ -19,10 +22,12 @@ export class ReportTableComponent implements OnInit, AfterViewInit {
     'iss_position.latitude',
     'iss_position.longitude',
   ];
-  constructor(public sataService: SataService) {}
+  constructor(public sataService: SataService) {
+    this.dataSource$ = this.sataService.savedLocations$;
+  }
 
   ngOnInit(): void {
-    this.dataSource.data = this.sataService.sataLocationLog;
+    // this.dataSource.data = this.sataService.savedLocations$;
   }
 
   ngAfterViewInit() {

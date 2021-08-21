@@ -12,16 +12,18 @@
 </div>
   <div class="left-side-bar">
     <div class="list-filters">
+      <form [formGroup]="form">
       <mat-form-field appearance="fill">
         <mat-label>Search</mat-label>
-        <input matInput type="text" [formControl]="search">
+        <input matInput type="text" formControlName="search">
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
+    </form>
     </div>
     <div class="log-list">
       <app-location-ref
-      [isSelected]="selectedID === item.id"
-      *ngFor="let item of filterdLogList"
+      [isSelected]="sataService.selectedID === item.id"
+      *ngFor="let item of filterdLogList$ | async"
       [log-item]="item"
       (click)="selectLocation(item)"
       (deleteLog)="deleteLog($event)">
