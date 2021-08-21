@@ -1,9 +1,9 @@
 <div class="location-ref" [ngClass]="{'selected-Log': isSelected}">
-<h3><b>{{logItem.name}}</b></h3>
-<span><b>lat:</b> {{logItem.iss_position.latitude}}</span>
-<span><b>lon:</b> {{logItem.iss_position.longitude}}</span>
-<span> <b>Time:</b> {{(logItem.timestamp)|date:'dd/MM/yy, HH:mm:ss'}}</span>
-<button mat-icon-button class="close-button" aria-label="icon button" (click)="delete()">
-  <mat-icon color="warn">close</mat-icon>
-</button>
+  <h3><b>{{logItem.name | titlecase}}</b></h3>
+  <span><b>lat:</b> {{logItem.iss_position.latitude}}</span>
+  <span><b>lon:</b> {{logItem.iss_position.longitude}}</span>
+  <span> <b>Time:</b> {{(logItem.timestamp)|date:'dd/MM/yy, HH:mm:ss'}}</span>
+  <button mat-icon-button class="close-button" aria-label="icon button" (click)="delete()">
+    <mat-icon color="warn">close</mat-icon>
+  </button>
 </div>
