@@ -5,15 +5,15 @@ import { Subscription } from 'rxjs';
 import { delay, startWith } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-current-postion',
-  templateUrl: './current-postion.component.html',
-  styleUrls: ['./current-postion.component.scss'],
+  selector: 'app-current-position',
+  templateUrl: './current-position.component.html',
+  styleUrls: ['./current-position.component.scss'],
 })
-export class CurrentPostionComponent implements AfterViewInit {
+export class CurrentPositionComponent implements AfterViewInit {
   sub!: Subscription;
   logItem!: ISata;
 
-  constructor(public sataService: SataService) {}
+  constructor(public sataService: SataService) { }
 
   ngAfterViewInit() {
     this.sub = this.sataService.mapLocation$

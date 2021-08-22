@@ -15,7 +15,7 @@ import { AddLocationDialogComponent } from './components/add-location-dialog/add
 import { SataService } from '@services/sata-service/sata.service';
 import { StateManagerService } from '@services/state-manager.service';
 import { ClockComponent } from './components/clock/clock.component';
-import { CurrentPostionComponent } from './components/current-postion/current-postion.component';
+import { CurrentPositionComponent } from './components/current-position/current-position.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { CurrentPostionComponent } from './components/current-postion/current-po
     ReportTableComponent,
     AddLocationDialogComponent,
     ClockComponent,
-    CurrentPostionComponent,
+    CurrentPositionComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,4 +41,4 @@ import { CurrentPostionComponent } from './components/current-postion/current-po
   providers: [SataService, StateManagerService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

@@ -4,7 +4,7 @@
  <img [src]="'assets/images/LogoMakr-Iss.png'" alt="">
 </div>
 <div class="status">
-<app-current-postion></app-current-postion>
+<app-current-position></app-current-position>
 </div>
 <div class="clock-container">
   <app-clock></app-clock>
@@ -23,7 +23,7 @@
     <div class="log-list">
       <app-location-ref
       [isSelected]="sataService.selectedID === item.id"
-      *ngFor="let item of filterdLogList$ | async"
+      *ngFor="let item of filteredLogList$ | async"
       [log-item]="item"
       (click)="selectLocation(item)"
       (deleteLog)="deleteLog($event)">

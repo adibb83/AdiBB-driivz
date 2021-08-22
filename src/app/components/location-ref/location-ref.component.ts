@@ -1,5 +1,5 @@
 import { AfterViewInit } from '@angular/core';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ISata } from '@models/sata.model';
 
 @Component({

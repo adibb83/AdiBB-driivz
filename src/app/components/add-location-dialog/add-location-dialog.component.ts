@@ -10,7 +10,8 @@ import { SnackbarService } from '@services/snack-bar.service';
   templateUrl: './add-location-dialog.component.html',
   styleUrls: ['./add-location-dialog.component.scss'],
 })
-export class AddLocationDialogComponent implements OnInit {
+export class AddLocationDialogComponent {
+
   locationForm = new FormGroup({
     location_name: new FormControl(null, [
       Validators.required,
@@ -26,10 +27,9 @@ export class AddLocationDialogComponent implements OnInit {
     public data: {
       currentLocation: ISata;
     }
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
-
+  // check duplicated log name and Save to Log
   onSubmit() {
     const name = this.locationForm.get('location_name')?.value;
     if (this.sataService.sataLocationLog.find((loc) => loc.name === name)) {
@@ -38,7 +38,6 @@ export class AddLocationDialogComponent implements OnInit {
         type: 'warning',
       });
     } else {
-      console.log(this.data);
       this.data.currentLocation.name = name;
       this.sataService.saveLocationToLog(this.data.currentLocation);
       this.dialogRef.close(false);

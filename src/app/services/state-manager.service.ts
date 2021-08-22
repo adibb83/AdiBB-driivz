@@ -15,8 +15,6 @@ export class StateManagerService {
     if (typeof localData === 'string') {
       this.currentState = <IStateManager>JSON.parse(localData);
     }
-
-    console.log(this.currentState);
   }
 
   setDataToLocal(): void {

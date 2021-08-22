@@ -14,6 +14,8 @@ export class MapComponent implements OnInit, OnDestroy {
   sub!: Subscription;
   zoom = 3;
   center!: google.maps.LatLngLiteral;
+
+  // map options
   options: google.maps.MapOptions = {
     mapTypeId: 'satellite',
     zoomControl: false,
@@ -28,9 +30,14 @@ export class MapComponent implements OnInit, OnDestroy {
     public sataService: SataService,
     private dialog: MatDialog,
     private snackbarService: SnackbarService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
+    this.startGettingMapLocations();
+  }
+
+  // subscribe to location subject ref
+  startGettingMapLocations() {
     this.sub = this.sataService.mapLocation$.subscribe((loc: ISata | null) => {
       if (loc != null) {
         this.setLocation(loc);
@@ -38,6 +45,7 @@ export class MapComponent implements OnInit, OnDestroy {
     });
   }
 
+  // set location point on the map
   setLocation(loc: ISata) {
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
@@ -50,6 +58,7 @@ export class MapComponent implements OnInit, OnDestroy {
     });
   }
 
+  // add position to log list + open dialog
   addPositionToLog() {
     if (!this.sataService.lastPosition) {
       this.snackbarService.append({

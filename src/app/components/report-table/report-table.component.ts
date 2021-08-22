@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   templateUrl: './report-table.component.html',
   styleUrls: ['./report-table.component.scss'],
 })
-export class ReportTableComponent implements OnInit, AfterViewInit {
+export class ReportTableComponent implements AfterViewInit {
   dataSource = new MatTableDataSource();
   dataSource$!: Observable<ISata[]>;
   @ViewChild(MatSort) sort!: MatSort;
@@ -23,18 +23,16 @@ export class ReportTableComponent implements OnInit, AfterViewInit {
     'iss_position.longitude',
     'deleteLog',
   ];
+
   constructor(public sataService: SataService) {
     this.dataSource$ = this.sataService.savedLocations$;
-  }
-
-  ngOnInit(): void {
-    // this.dataSource.data = this.sataService.savedLocations$;
   }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
 
+  // delete log from log list
   deleteLog(event: ISata) {
     this.sataService.deleteLocationFromLog(
       event,
