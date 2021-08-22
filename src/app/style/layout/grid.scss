@@ -57,7 +57,7 @@ main {
     grid-template-areas: "filter" "log";
     height: 100%;
     overflow: auto;
-    padding: 50px 10px;
+    padding: 50px 30px 10px;
 
     .list-filters {
       grid-area: filter;

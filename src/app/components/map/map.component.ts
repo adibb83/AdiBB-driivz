@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { SataService } from '@services/sata.service';
+import { SataService } from '@services/sata-service/sata.service';
 import { ISata } from '@models/sata.model';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { AddLocationDialogComponent } from '@components/add-location-dialog/add-location-dialog.component';
+import { SnackbarService } from '@services/snack-bar.service';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -23,7 +24,11 @@ export class MapComponent implements OnInit, OnDestroy {
     fullscreenControl: false,
   };
 
-  constructor(public sataService: SataService, private dialog: MatDialog) {}
+  constructor(
+    public sataService: SataService,
+    private dialog: MatDialog,
+    private snackbarService: SnackbarService
+  ) {}
 
   ngOnInit(): void {
     this.sub = this.sataService.mapLocation$.subscribe((loc: ISata | null) => {
@@ -46,6 +51,13 @@ export class MapComponent implements OnInit, OnDestroy {
   }
 
   addPositionToLog() {
+    if (!this.sataService.lastPosition) {
+      this.snackbarService.append({
+        message: 'You Are On Zoom Mode! Uncheck And Try Again',
+        type: 'warning',
+      });
+      return;
+    }
     const dialogRef = this.dialog.open(AddLocationDialogComponent, {
       data: {
         currentLocation: this.sataService.lastPosition,

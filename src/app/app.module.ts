@@ -12,7 +12,7 @@ import { MapComponent } from './components/map/map.component';
 import { ReportTableComponent } from './components/report-table/report-table.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { AddLocationDialogComponent } from './components/add-location-dialog/add-location-dialog.component';
-import { SataService } from '@services/sata.service';
+import { SataService } from '@services/sata-service/sata.service';
 import { StateManagerService } from '@services/state-manager.service';
 import { ClockComponent } from './components/clock/clock.component';
 import { CurrentPostionComponent } from './components/current-postion/current-postion.component';

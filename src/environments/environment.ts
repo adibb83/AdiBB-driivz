@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  remoteServer: 'http://api.open-notify.org/iss-now.json'
+  remoteServer: 'http://api.open-notify.org/iss-now.json',
 };
 
 /*

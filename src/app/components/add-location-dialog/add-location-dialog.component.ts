@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { SataService } from '@services/sata.service';
+import { SataService } from '@services/sata-service/sata.service';
 import { ISata } from '@models/sata.model';
 import { SnackbarService } from '@services/snack-bar.service';
 
@@ -38,6 +38,7 @@ export class AddLocationDialogComponent implements OnInit {
         type: 'warning',
       });
     } else {
+      console.log(this.data);
       this.data.currentLocation.name = name;
       this.sataService.saveLocationToLog(this.data.currentLocation);
       this.dialogRef.close(false);

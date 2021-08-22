@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy, OnInit } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { ISata } from '@models/sata.model';
-import { SnackbarService } from './snack-bar.service';
+import { SnackbarService } from '../snack-bar.service';
 import {
   switchMap,
   tap,
@@ -25,13 +25,14 @@ import {
   throwError,
   timer,
 } from 'rxjs';
-import { StateManagerService } from './state-manager.service';
+import { StateManagerService } from '../state-manager.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SataService implements OnDestroy {
   sub!: Subscription;
+  readonly API_URL = environment.remoteServer;
   private dashData$ = new BehaviorSubject<ISata[]>([]);
   public sataPositionListener$!: Observable<ISata>;
   public sataLocationLog: ISata[] = [];
@@ -58,12 +59,16 @@ export class SataService implements OnDestroy {
 
   initData() {
     this.sataPositionListener$ = timer(1, 3000).pipe(
-      switchMap(() => this.httpClient.get<ISata>(environment.remoteServer)),
+      switchMap(() => this.getSataCurrentLocation()),
       retry(3),
       share(),
       catchError((e) => this.handleError(e)),
       takeUntil(this.stopPolling)
     );
+  }
+
+  getSataCurrentLocation(): Observable<ISata> {
+    return this.httpClient.get<ISata>(this.API_URL);
   }
 
   startSataListener() {

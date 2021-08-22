@@ -1,6 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { ISata } from '@models/sata.model';
-import { SataService } from '@services/sata.service';
+import { SataService } from '@services/sata-service/sata.service';
 import { Subscription } from 'rxjs';
 import { delay, startWith } from 'rxjs/operators';
 

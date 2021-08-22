@@ -12,8 +12,10 @@
 @import "components/map";
 @import "components/location-ref";
 @import "components/clock";
+@import "components/report-table.scss";
 
 @import "mat-override/globale";
 @import "mat-override/forms";
 @import "mat-override/table";
 @import "mat-override/tabs";
+@import "mat-override/snack-bar.scss";

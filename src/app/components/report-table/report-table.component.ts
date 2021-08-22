@@ -3,7 +3,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ISata } from '@models/sata.model';
 
-import { SataService } from '@services/sata.service';
+import { SataService } from '@services/sata-service/sata.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -21,6 +21,7 @@ export class ReportTableComponent implements OnInit, AfterViewInit {
     'timestamp',
     'iss_position.latitude',
     'iss_position.longitude',
+    'deleteLog',
   ];
   constructor(public sataService: SataService) {
     this.dataSource$ = this.sataService.savedLocations$;
@@ -32,5 +33,12 @@ export class ReportTableComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+  }
+
+  deleteLog(event: ISata) {
+    this.sataService.deleteLocationFromLog(
+      event,
+      this.sataService.sataLocationLog
+    );
   }
 }
