@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, OnDestroy, OnInit } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { ISata } from '@models/sata.model';
 import { SnackbarService } from '../snack-bar.service';
@@ -10,21 +10,17 @@ import {
   retry,
   takeUntil,
   catchError,
-  debounceTime,
-  distinctUntilChanged,
   map,
-  filter,
 } from 'rxjs/operators';
 import {
   BehaviorSubject,
-  from,
   Observable,
   Subject,
-  Subscriber,
   Subscription,
   throwError,
   timer,
 } from 'rxjs';
+
 import { StateManagerService } from '../state-manager.service';
 
 @Injectable({
@@ -57,6 +53,7 @@ export class SataService implements OnDestroy {
     return this.dashData$.asObservable();
   }
 
+  // declare timer for api call - get satellite location
   initData() {
     this.sataPositionListener$ = timer(1, 3000).pipe(
       switchMap(() => this.getSataCurrentLocation()),
@@ -67,10 +64,12 @@ export class SataService implements OnDestroy {
     );
   }
 
+  // http call for current satellite location
   getSataCurrentLocation(): Observable<ISata> {
     return this.httpClient.get<ISata>(this.API_URL);
   }
 
+  // subscribe to timer to start data stream
   startSataListener() {
     this.sub = this.sataPositionListener$.subscribe((res) => {
       res.timestamp = res.timestamp * 1000;
@@ -79,12 +78,14 @@ export class SataService implements OnDestroy {
     });
   }
 
+  //unsubscribe from timer to stop data stream
   stopSataListener() {
     if (this.sub) {
       this.sub.unsubscribe();
     }
   }
 
+  // save requested satellite location to log list
   saveLocationToLog(log: ISata) {
     log.id = this.logIndex;
     this.sataLocationLog.push(log);
@@ -93,6 +94,7 @@ export class SataService implements OnDestroy {
     this.setToLocal();
   }
 
+  // delete location from log list
   deleteLocationFromLog(log: ISata, list: ISata[]) {
     let index = list.findIndex((e) => e.id === log.id);
     if (index != null) {
@@ -106,6 +108,7 @@ export class SataService implements OnDestroy {
     }
   }
 
+  // typeahead string to filter log list by item name
   searchEntries(term: string): Observable<ISata[]> {
     this.filter = term;
     this.setToLocal();
@@ -123,6 +126,7 @@ export class SataService implements OnDestroy {
     );
   }
 
+  // set current state to local storage
   setToLocal() {
     this.stateManagerService.currentState = {
       zoom: this.zoom,
@@ -134,6 +138,7 @@ export class SataService implements OnDestroy {
     this.stateManagerService.setDataToLocal();
   }
 
+  // get last state from local storage
   getFromLocal() {
     this.stateManagerService.getDataFromLocal();
     if (this.stateManagerService.currentState) {
@@ -150,6 +155,8 @@ export class SataService implements OnDestroy {
   getLocationById(id: number): ISata | undefined {
     return this.sataLocationLog.find((log) => log.id === id);
   }
+
+  // hendle error this should be in separate service for big projects
   private handleError<T>(e: Error) {
     console.error(e);
     return throwError(e);

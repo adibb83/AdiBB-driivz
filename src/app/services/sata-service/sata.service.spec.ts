@@ -1,9 +1,9 @@
-import { TestBed, getTestBed } from '@angular/core/testing';
+import { TestBed, getTestBed, fakeAsync } from '@angular/core/testing';
 import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import { ISata } from '@models/sata.model';
+import { ISata, IIssPosition } from '@models/sata.model';
 import { SataService } from '@services/sata-service/sata.service';
 import { SnackbarService } from '@services/snack-bar.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -44,6 +44,7 @@ describe('SataService', () => {
     expect(req.request.method).toBe('GET');
     req.flush(dummyLocation);
   });
+
   afterEach(() => {
     httpMock.verify();
   });
