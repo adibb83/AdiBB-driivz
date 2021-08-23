@@ -37,7 +37,7 @@ export class SataService implements OnDestroy {
   public lastPosition!: ISata;
   public selectedID = -1;
   public zoom = 2;
-  logIndex = 0;
+  logIndex = 1;
   filter = '';
 
   constructor(
