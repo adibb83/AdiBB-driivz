@@ -3,7 +3,7 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import { ISata, IIssPosition } from '@models/sata.model';
+import { ISata } from '@models/sata.model';
 import { SataService } from '@services/sata-service/sata.service';
 import { SnackbarService } from '@services/snack-bar.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
